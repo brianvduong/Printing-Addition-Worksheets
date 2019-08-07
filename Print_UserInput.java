@@ -64,6 +64,7 @@ public class Print_UserInput {
         File file = new File("results/user/adding" + i + ".pdf");
         file.getParentFile().mkdirs();
         new Print_UserInput().createPdf("results/user/adding" + i + ".pdf", i);
+	System.out.println("Your worksheet for adding " + i + " has been created.");
     }
     
 }
