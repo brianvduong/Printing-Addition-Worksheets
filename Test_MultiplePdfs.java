@@ -10,7 +10,7 @@ import java.io.IOException;
  
 import java.util.Random;
 /**
- * Adding multiple worksheet
+ * Test for creating multiple worksheets
  */
 public class Test_MultiplePdfs {
     

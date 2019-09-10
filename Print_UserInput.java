@@ -55,7 +55,8 @@ public class Print_UserInput {
         document.close();
     }
     
-    public static void main(String args[]) throws IOException {
+    @SuppressWarnings("resource")
+	public static void main(String args[]) throws IOException {
     	
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter a number between 0-9: ");
@@ -64,7 +65,8 @@ public class Print_UserInput {
         File file = new File("results/user/adding" + i + ".pdf");
         file.getParentFile().mkdirs();
         new Print_UserInput().createPdf("results/user/adding" + i + ".pdf", i);
-	System.out.println("Your worksheet for adding " + i + " has been created.");
+        
+        System.out.println("Your worksheet for adding " + i + " has been created.");
     }
     
 }

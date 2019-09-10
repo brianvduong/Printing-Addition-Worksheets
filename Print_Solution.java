@@ -10,64 +10,30 @@ import java.io.IOException;
  
 import java.util.Random;
 /**
- * Adding No Carry worksheet
+ * Adding any 2 digits worksheet and solution as well
  */
-public class Print_No_Carry {
+public class Print_Solution {
     
-    public static final String DEST = "results/noCarry/test1.pdf";
+    public static final String DEST1 = "results/solutions/worksheet.pdf";
+    public static final String DEST2 = "results/solutions/solution.pdf";
     
 	public static int generateRandom() {
 		Random rand = new Random();
-		int low = 0;
-		int high = 9;
+		int low = 10;
+		int high = 99;
 		int result = rand.nextInt(high - low) + low;
 		return result;
 	}
 	
-	public static boolean check(int num1, int num2) {
-		return ((num1 + num2) <= 9);
-	}
-	
-	public static int[] generateFour() {
-		int [] numbers = new int[4];
-		
-		int number1 = generateRandom();
-		int number2 = generateRandom();
-		int number3 = generateRandom();
-		int number4 = generateRandom();
-		
-		while(check(number1, number2) != true) {
-			number1 = generateRandom();
-			number2 = generateRandom();
-		}
-		while(check(number3, number4) != true) {
-			number3 = generateRandom();
-			number4 = generateRandom();
-		}
-		
-		numbers[0] = number1;
-		numbers[1] = number2;
-		numbers[2] = number3;
-		numbers[3] = number4;
-		for (int i : numbers) {
-			System.out.println(i);
-		}
-		return numbers;
-		
-	}
-	
 	public static Paragraph[] generateProblems() {
-		
 		Paragraph [] problems = new Paragraph[6];
-		int [] numlist = new int[4];
 		for(int i = 0; i < 6; i++) {
             problems[i] = new Paragraph("");
         }
 		for(int i = 0; i < 6; i++) {
-			numlist = generateFour();
-        	problems[0].add("                    " + numlist[0] + "" + numlist[2]);
-        	problems[1].add("              +    " + numlist[1] + "" + numlist[3]);
-        	problems[2].add("               --------");
+        	problems[0].add("                     " + generateRandom());
+        	problems[1].add("               +    " + generateRandom());
+        	problems[2].add("               ---------");
         	problems[3].add("                 ");
         	problems[4].add("                 ");
         	problems[5].add("                 ");
@@ -92,9 +58,9 @@ public class Print_No_Carry {
     }
     
     public static void main(String args[]) throws IOException {
-        File file = new File(DEST);
+        File file = new File(DEST1);
         file.getParentFile().mkdirs();
-        new Print_No_Carry().createPdf(DEST);
+        new Print_2Digit().createPdf(DEST1);
     }
     
 }
